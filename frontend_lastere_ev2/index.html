@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP LASTERE - Sistema de Gestión Frontend</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Layout Principal del ERP -->
+    <div class="app-container">
+
+        <!-- Barra Lateral de Navegación (Sidebar) -->
+        <aside class="sidebar">
+            <div class="brand">
+                <i class="fa-solid fa-boxes-stacked brand-icon"></i>
+                <h2>LASTERE <span>ERP</span></h2>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+                <a href="#" class="nav-item"><i class="fa-solid fa-box-open"></i> Inventario</a>
+                <a href="#" class="nav-item"><i class="fa-solid fa-file-invoice-dollar"></i> Facturación</a>
+                <a href="#" class="nav-item"><i class="fa-solid fa-users"></i> Clientes</a>
+                <a href="#" class="nav-item"><i class="fa-solid fa-gear"></i> Configuración</a>
+            </nav>
+
+            <div class="user-profile">
+                <div class="avatar">ML</div>
+                <div class="user-info">
+                    <p class="user-name">Maria Luisa</p>
+                    <p class="user-role">Administradora</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Área de Contenido Principal -->
+        <main class="main-content">
+
+            <!-- Encabezado Superior -->
+            <header class="top-header">
+                <div class="header-title">
+                    <h1>Módulo de Gestión de Inventario</h1>
+                    <p>Ficha SENA ADSO | Evidencia GA6-220501096-AA4-EV02</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" id="btnExportar"><i class="fa-solid fa-file-excel"></i> Exportar</button>
+                    <button class="btn btn-primary" id="btnNuevoProducto"><i class="fa-solid fa-plus"></i> Nuevo Producto</button>
+                </div>
+            </header>
+
+            <!-- Tarjetas de Métricas (Dashboard KPI) -->
+            <section class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-icon blue"><i class="fa-solid fa-cubes"></i></div>
+                    <div class="kpi-data">
+                        <h3>Total Productos</h3>
+                        <p id="kpiTotalProds">0</p>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon green"><i class="fa-solid fa-sack-dollar"></i></div>
+                    <div class="kpi-data">
+                        <h3>Valor Inventario</h3>
+                        <p id="kpiValorTotal">$0.00</p>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon orange"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <div class="kpi-data">
+                        <h3>Stock Bajo</h3>
+                        <p id="kpiStockBajo">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Formulario y Tabla de Datos -->
+            <section class="content-body">
+
+                <!-- Formulario Dinámico -->
+                <div class="card form-card">
+                    <h3><i class="fa-solid fa-pen-to-square"></i> Registro de Producto</h3>
+                    <form id="prodForm">
+                        <div class="form-group">
+                            <label for="codigo">Código / SKU:</label>
+                            <input type="text" id="codigo" placeholder="Ej: PRD-001" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre">Nombre del Producto:</label>
+                            <input type="text" id="nombre" placeholder="Ej: Licencia ERP Software" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="categoria">Categoría:</label>
+                                <select id="categoria" required>
+                                    <option value="">Seleccionar...</option>
+                                    <option value="Servicios">Servicios</option>
+                                    <option value="Hardware">Hardware</option>
+                                    <option value="Licencias">Licencias</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="cantidad">Cantidad (Stock):</label>
+                                <input type="number" id="cantidad" min="1" placeholder="0" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="precio">Precio Unitario ($ COP):</label>
+                            <input type="number" id="precio" min="0" step="1000" placeholder="0" required>
+                        </div>
+                        <button type="submit" class="btn btn-block btn-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar Registro</button>
+                    </form>
+                </div>
+
+                <!-- Tabla de Registros -->
+                <div class="card table-card">
+                    <div class="table-header">
+                        <h3><i class="fa-solid fa-list"></i> Listado de Existencias</h3>
+                        <div class="search-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="inputBuscar" placeholder="Buscar producto...">
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>SKU</th>
+                                    <th>Producto</th>
+                                    <th>Categoría</th>
+                                    <th>Stock</th>
+                                    <th>Precio Unit.</th>
+                                    <th>Total</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaProductos">
+                                <!-- Filas generadas por JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
