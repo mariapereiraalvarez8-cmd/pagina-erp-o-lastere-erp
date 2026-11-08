@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial: Fundamentos de Programación en JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Encabezado Principal -->
+    <header class="main-header">
+        <div class="container">
+            <span class="badge">SENA - ADSO</span>
+            <h1>Fundamentos de Programación en JavaScript</h1>
+            <p>Aprende las bases esenciales para dar interactividad y lógica a tus aplicaciones web.</p>
+        </div>
+    </header>
+
+    <div class="container layout">
+        
+        <!-- Menú / Índice del Tutorial (Exigido en la guía) -->
+        <aside class="sidebar">
+            <div class="card index-card">
+                <h2>Índice del Tutorial</h2>
+                <p>Haz clic en cualquier concepto para ir directamente a la lección:</p>
+                <ol class="tutorial-list">
+                    <li><a href="#variables">Variables y Tipos de Datos</a></li>
+                    <li><a href="#condicionales">Estructuras Condicionales</a></li>
+                    <li><a href="#ciclos">Bucles y Ciclos (Loops)</a></li>
+                    <li><a href="#funciones">Funciones y Modularidad</a></li>
+                </ol>
+            </div>
+        </aside>
+
+        <!-- Contenido de las Lecciones -->
+        <main class="content">
+
+            <!-- Lección 1 -->
+            <article id="variables" class="card lesson">
+                <span class="lesson-number">Lección 01</span>
+                <h2>Variables y Tipos de Datos</h2>
+                
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Código en pantalla con variables y datos">
+                </div>
+
+                <div class="lesson-body">
+                    <p>
+                        Las <strong>variables</strong> son contenedores donde almacenamos datos que la aplicación necesita para funcionar. En JavaScript moderno utilizamos principalmente <code>let</code> para variables cuyos valores van a cambiar, y <code>const</code> para valores fijos o constantes.
+                    </p>
+                    <p>
+                        Los tipos de datos primitivos más comunes son:
+                    </p>
+                    <ul>
+                        <li><strong>String:</strong> Cadenas de texto declaradas entre comillas.</li>
+                        <li><strong>Number:</strong> Números enteros o decimales.</li>
+                        <li><strong>Boolean:</strong> Valores lógicos (<code>true</code> o <code>false</code>).</li>
+                    </ul>
+
+                    <div class="code-box">
+                        <pre><code>// Declaración de variables en JavaScript
+const usuario = "Maria";
+let saldo = 150000;
+let cuentaActiva = true;
+
+saldo = saldo + 50000; // El saldo cambia a 200000</code></pre>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Lección 2 -->
+            <article id="condicionales" class="card lesson">
+                <span class="lesson-number">Lección 02</span>
+                <h2>Estructuras Condicionales</h2>
+
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516116211223-4258568880c6?auto=format&fit=crop&w=800&q=80" alt="Lógica de bifurcación y decisiones">
+                </div>
+
+                <div class="lesson-body">
+                    <p>
+                        Las estructuras condicionales (<code>if</code>, <code>else if</code>, <code>else</code>) permiten a tu programa tomar decisiones automáticas evaluando si una condición lógica resulta verdadera o falsa.
+                    </p>
+                    <p>
+                        Son fundamentales para la validación de formularios, el control de acceso a módulos y la gestión de permisos en sistemas web.
+                    </p>
+
+                    <div class="code-box">
+                        <pre><code>// Estructura de decisión simple
+let edad = 18;
+
+if (edad >= 18) {
+    console.log("Acceso concedido al sistema.");
+} else {
+    console.log("Acceso restringido: Debes ser mayor de edad.");
+}</code></pre>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Lección 3 -->
+            <article id="ciclos" class="card lesson">
+                <span class="lesson-number">Lección 03</span>
+                <h2>Bucles y Ciclos (Loops)</h2>
+
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=80" alt="Patrón repetitivo de código">
+                </div>
+
+                <div class="lesson-body">
+                    <p>
+                        Los ciclos o bucles permiten ejecutar un bloque de código múltiples veces de forma automática sin necesidad de duplicar instrucciones. El ciclo <code>for</code> es la estructura de repetición más común en JavaScript.
+                    </p>
+                    <p>
+                        Se utiliza habitualmente para recorrer listas de datos (arreglos) como registros contables, listas de usuarios o inventarios.
+                    </p>
+
+                    <div class="code-box">
+                        <pre><code>// Ejemplo de ciclo for recorriendo un arreglo
+const productos = ["Factura", "Recibo", "Cotización"];
+
+for (let i = 0; i < productos.length; i++) {
+    console.log("Procesando documento: " + productos[i]);
+}</code></pre>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Lección 4 -->
+            <article id="funciones" class="card lesson">
+                <span class="lesson-number">Lección 04</span>
+                <h2>Funciones y Modularidad</h2>
+
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80" alt="Bloques de código modulares e interconectados">
+                </div>
+
+                <div class="lesson-body">
+                    <p>
+                        Una <strong>función</strong> es un bloque de código reutilizable diseñado para realizar una tarea específica. Recibe entradas opcionales llamadas <em>parámetros</em> y puede retornar un resultado.
+                    </p>
+                    <p>
+                        Organizar el código en funciones facilita el mantenimiento, evita la duplicación y mejora sustancialmente la legibilidad de la arquitectura del software.
+                    </p>
+
+                    <div class="code-box">
+                        <pre><code>// Función para calcular impuesto IVA en un ERP
+function calcularTotalConIVA(subtotal) {
+    const porcentajeIVA = 0.19;
+    const total = subtotal + (subtotal * porcentajeIVA);
+    return total;
+}
+
+let pagoFinal = calcularTotalConIVA(100000); // Retorna 119000
+console.log("Monto total a facturar: $" + pagoFinal);</code></pre>
+                    </div>
+                </div>
+            </article>
+
+        </main>
+    </div>
+
+    <!-- Pie de página -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2026 - Evidencia GA6-220501096-AA4-EV01 | Análisis y Desarrollo de Software (SENA)</p>
+        </div>
+    </footer>
+
+</body>
+</html>

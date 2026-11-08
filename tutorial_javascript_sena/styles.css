@@ -1,0 +1,255 @@
+/* ==========================================================================
+   Estilos Globales y Variables
+   ========================================================================== */
+:root {
+    --color-primary: #0f172a;       /* Azul oscuro corporativo */
+    --color-accent: #2563eb;        /* Azul brillante */
+    --color-accent-hover: #1d4ed8;
+    --color-bg: #f8fafc;            /* Gris claro de fondo */
+    --color-card: #ffffff;          /* Fondo de tarjetas */
+    --color-text-main: #334155;     /* Texto gris oscuro */
+    --color-text-muted: #64748b;    /* Texto secundario */
+    --color-border: #e2e8f0;        /* Bordes suaves */
+    --color-code-bg: #1e293b;       /* Fondo oscuro para código */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    --font-main: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-code: 'Courier New', Courier, monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-bg);
+    color: var(--color-text-main);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   Header / Encabezado
+   ========================================================================== */
+.main-header {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    padding: 50px 0 40px;
+    text-align: center;
+    border-bottom: 4px solid var(--color-accent);
+}
+
+.badge {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #38bdf8;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.main-header h1 {
+    font-size: 2.2rem;
+    margin: 15px 0 10px;
+    font-weight: 700;
+}
+
+.main-header p {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   Layout Principal (Sidebar + Contenido)
+   ========================================================================== */
+.layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.card {
+    background-color: var(--color-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+    padding: 25px;
+}
+
+/* ==========================================================================
+   Sidebar / Menú del Tutorial
+   ========================================================================== */
+.sidebar {
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+}
+
+.index-card h2 {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+}
+
+.index-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 18px;
+}
+
+.tutorial-list {
+    padding-left: 20px;
+}
+
+.tutorial-list li {
+    margin-bottom: 12px;
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+.tutorial-list a {
+    color: var(--color-text-main);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+    display: inline-block;
+}
+
+.tutorial-list a:hover {
+    color: var(--color-accent);
+    padding-left: 4px;
+}
+
+/* ==========================================================================
+   Contenido de las Lecciones
+   ========================================================================== */
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.lesson {
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+.lesson:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.lesson-number {
+    display: inline-block;
+    background-color: #eff6ff;
+    color: var(--color-accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.lesson h2 {
+    font-size: 1.6rem;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.image-wrapper {
+    width: 100%;
+    max-height: 250px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid var(--color-border);
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.lesson-body p {
+    margin-bottom: 15px;
+    color: var(--color-text-main);
+}
+
+.lesson-body ul {
+    margin: 10px 0 20px 25px;
+}
+
+.lesson-body li {
+    margin-bottom: 6px;
+}
+
+/* Bloques de Código */
+.code-box {
+    background-color: var(--color-code-bg);
+    border-radius: var(--radius-sm);
+    padding: 18px 20px;
+    overflow-x: auto;
+    margin-top: 20px;
+    border-left: 4px solid var(--color-accent);
+}
+
+.code-box code {
+    font-family: var(--font-code);
+    color: #e2e8f0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.main-footer {
+    background-color: var(--color-primary);
+    color: var(--color-text-muted);
+    text-align: center;
+    padding: 25px 0;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   Responsividad (Móviles y Tablets)
+   ========================================================================== */
+@media (max-width: 850px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+    }
+
+    .main-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .image-wrapper img {
+        height: 180px;
+    }
+}
